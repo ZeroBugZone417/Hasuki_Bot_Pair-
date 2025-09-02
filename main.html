@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queen Hasuki</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: radial-gradient(circle at center, #1a1a1a, #000);
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      color: #ff2e63;
+      text-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .button {
+      background: linear-gradient(90deg, #ff0844, #ff2e63);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 46, 99, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 46, 99, 1);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>QUEEN HASUKI SESSION</h1>
+  <div class="button-container">
+    <a href="/qr" class="button" target="_blank">QR-CODE</a>
+    <a href="/pair" class="button" target="_blank">PAIRING-CODE</a>
+    <a href="https://github.com/ZeroBugZone417/QUEEN-HASUKI-BOT" class="button" target="_blank">FORK QUEEN HASUKI XD</a>
+    <a href="https://whatsapp.com/channel/0029VbB2GHIGpLHIjL3bxC3j" class="button" target="_blank">WhatsApp</a>
+    <a href="https://wa.me/94769983151" class="button" target="_blank">ERROR</a>
+  </div>
+  <footer>QUEEN HASUKI &copy; <span id="year"></span></footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
