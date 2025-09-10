@@ -3,222 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QUEEN HASUKI</title>
+  <title>QUEEN HASUKI SESSION</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
       background: #000;
       color: #fff;
-      text-align: center;
-      scroll-behavior: smooth;
-    }
-
-    header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      position: fixed;
-      width: 100%;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #00ffcc, #00aaff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    header nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #aaa;
-      transition: color 0.3s ease;
-    }
-
-    header nav a:hover {
-      color: #fff;
-    }
-
-    .btn-secondary {
-      border: 1px solid #00ffcc;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      color: #00ffcc;
-      transition: 0.3s;
-    }
-
-    .btn-secondary:hover {
-      background: #00ffcc;
-      color: #000;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: radial-gradient(circle at center, #111, #000);
-      padding: 0 20px;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
-    .hero h1 {
-      font-size: 48px;
+    /* Particle background */
+    #particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    h3 {
+      font-size: 36px;
       font-weight: bold;
-      margin-bottom: 20px;
-      background: linear-gradient(270deg, #00ffcc, #00aaff, #ff00ff);
-      background-size: 600% 600%;
+      background: linear-gradient(90deg, #8a2be2, #00aaff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientAnimation 10s ease infinite;
+      animation: textGlow 3s ease-in-out infinite alternate;
     }
 
-    @keyframes gradientAnimation {
+    @keyframes textGlow {
+      from { text-shadow: 0 0 5px #8a2be2, 0 0 10px #00aaff; }
+      to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #00aaff; }
+    }
+
+    .button {
+      position: relative;
+      display: inline-block;
+      width: 200px;
+      padding: 15px 0;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: linear-gradient(90deg, #8a2be2, #00aaff);
+      box-shadow: 0 0 10px #8a2be2, 0 0 20px #00aaff;
+      animation: slideIn 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .button:nth-child(2) { animation-delay: 0.2s; }
+    .button:nth-child(3) { animation-delay: 0.4s; }
+    .button:nth-child(4) { animation-delay: 0.6s; }
+    .button:nth-child(5) { animation-delay: 0.8s; }
+    .button:nth-child(6) { animation-delay: 1s; }
+
+    @keyframes slideIn {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #8a2be2, #00aaff, #ff00ff, #00ffff);
+      background-size: 400% 400%;
+      z-index: 0;
+      filter: blur(25px);
+      animation: moveGradient 10s linear infinite;
+    }
+
+    .button span { position: relative; z-index: 1; }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #8a2be2, 0 0 50px #00aaff;
+    }
+
+    @keyframes moveGradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .hero p {
-      max-width: 600px;
-      font-size: 16px;
-      color: #bbb;
-      margin-bottom: 30px;
-    }
-
-    .btn-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, #00ffcc, #00aaff);
-      color: #000;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00ffcc, 0 0 25px #00aaff;
-    }
-
-    .btn-outline {
-      border: 1px solid #00ffcc;
-      color: #00ffcc;
-    }
-
-    .btn-outline:hover {
-      background: #00ffcc;
-      color: #000;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 80px 50px 50px 50px;
-      background: #0d0d0d;
-    }
-
-    .feature-box {
-      background: #111;
-      border-radius: 12px;
-      padding: 25px 20px;
-      box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
-    }
-
-    .feature-box h3 {
-      background: linear-gradient(90deg, #00ffcc, #00aaff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-    }
-
-    .feature-box p {
+    p {
       color: #aaa;
+      margin: 10px 0;
       font-size: 14px;
+      animation: fadeIn 2s forwards;
     }
 
     footer {
-      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      background: #111;
       font-size: 14px;
-      color: #777;
-      background: #000;
+      color: #bbb;
+      z-index: 1;
     }
 
-    @media (max-width: 600px) {
-      header { flex-direction: column; gap: 10px; padding: 15px 20px; }
-      .hero h1 { font-size: 36px; }
-      .features { padding: 50px 20px; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">QUEEN HASUKI</div>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#">Support</a>
-      <a href="#" class="btn-secondary">Login</a>
-    </nav>
-  </header>
+  <!-- Particle canvas -->
+  <canvas id="particles"></canvas>
 
-  <section class="hero">
-    <h1>Unleashing the Future of <span>BOTS</span></h1>
-    <p>Welcome to QUEEN HASUKI — your gateway to next-level BOT solutions, built for speed, security, and innovation.</p>
-    <div class="btn-container">
-      <a href="/pair" class="btn btn-primary">Get Pair Code</a>
-      <a href="/qr" class="btn btn-outline">QR Code</a>
-    </div>
-  </section>
+  <div class="button-container">
+    <h3>QUEEN HASUKI SESSION</h3>
 
-  <section class="features" id="features">
-    <div class="feature-box">
-      <h3>Secure & Reliable</h3>
-      <p>99.9% uptime with advanced security measures to keep your data safe and your bot running smoothly.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Blazing Fast Speed</h3>
-      <p>Optimized infrastructure for ultra-low latency, ensuring your commands are executed instantly.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Full Control</h3>
-      <p>Manage your bot’s settings easily through a user-friendly dashboard.</p>
-    </div>
-  </section>
+    <a href="/qr" class="button"><span>QR-CODE</span></a>
+    <a href="/pair" class="button"><span>PAIRING-CODE</span></a>
+    <a href="https://github.com/ZeroBugZone417" class="button"><span>FORK QUEEN HASUKI</span></a>
+    <a href="https://whatsapp.com/channel/0029VbB2GHIGpLHIjL3bxC3j" class="button"><span>WhatsApp</span></a>
 
-  <footer>
-    © <span id="year"></span> QUEEN HASUKI. All rights reserved.
-  </footer>
+    <p>HAVE ANY ERROR CLICK ERROR BUTTON</p>
+    <a href="https://wa.me/94769983151
+    " class="button"><span>ERROR</span></a>
+
+    <footer>
+      QUEEN HASUKI &copy; <span id="year"></span>
+    </footer>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Particle animation
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', function(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+
+    class Particle {
+      constructor(){
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+      }
+      update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if(this.x > canvas.width) this.x = 0;
+        if(this.x < 0) this.x = canvas.width;
+        if(this.y > canvas.height) this.y = 0;
+        if(this.y < 0) this.y = canvas.height;
+      }
+      draw(){
+        ctx.fillStyle = 'rgba(138,43,226,0.7)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI *2);
+        ctx.fill();
+      }
+    }
+
+    function init(){
+      particlesArray = [];
+      for(let i=0; i<100; i++){
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
   </script>
 </body>
 </html>
